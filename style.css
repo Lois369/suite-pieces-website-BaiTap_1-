@@ -202,41 +202,36 @@ nav ul li a {
 /* --- Khung chứa 2 nút (Giữ cố định ở góc dưới bên trái slider) --- */
 .navigation {
   position: absolute;
-  bottom: 12px; /* Cách mép dưới cố định 12px */
-  left: 12px; /* Cách mép trái cố định 12px */
+  bottom: 12px;
+  left: 12px;
   top: auto;
   transform: none;
 
   display: flex;
-  gap: 6px; /* Khoảng cách cố định giữa 2 nút */
-  width: auto;
-  padding: 0;
-  z-index: 20; /* Đảm bảo luôn đè lên trên ảnh */
-  pointer-events: none;
-}
-
-/* --- Style nút bấm (Cố định kích thước 100% không bị co dãn) --- */
-/* --- Khung chứa 2 nút (Tự điều chỉnh khoảng cách theo màn hình) --- */
-.navigation {
-  position: absolute;
-  bottom: 3%; /* Vị trí cách đáy 3% chiều cao slider */
-  left: 3%; /* Vị trí cách mép trái 3% chiều rộng slider */
-  top: auto;
-  transform: none;
-
-  display: flex;
-  gap: clamp(
-    4px,
-    1vw,
-    8px
-  ); /* Khoảng cách giữa 2 nút tự co giãn từ 4px đến 8px */
+  gap: 6px;
   width: auto;
   padding: 0;
   z-index: 20;
   pointer-events: none;
 }
 
-/* --- Style nút bấm (Tự động co giãn kích thước theo thiết bị) --- */
+/* Khung chứa 2 nút */
+.navigation {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  top: auto;
+  transform: none;
+
+  display: flex;
+  gap: clamp(4px, 1vw, 8px);
+  width: auto;
+  padding: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/*  */
 .prev-btn,
 .next-btn {
   pointer-events: auto;
