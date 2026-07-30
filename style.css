@@ -1,4 +1,3 @@
-/*set up*/
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +5,8 @@
 }
 
 body {
-  font-family: "Gotham Rounded", sans-serif;
+  font-family: "Gotham Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
   color: #000000;
   background-color: #fff;
   line-height: 1.2;
@@ -20,6 +20,7 @@ a {
 ul {
   list-style: none;
 }
+
 .container {
   max-width: 980px;
   margin: 0 auto;
@@ -27,6 +28,7 @@ ul {
   width: 100%;
 }
 
+/* header, na */
 /* top bar */
 .top-bar {
   display: flex;
@@ -35,6 +37,7 @@ ul {
   padding: 20px 0;
   color: #888;
 }
+
 .user-link {
   display: flex;
   align-items: center;
@@ -49,7 +52,7 @@ ul {
   line-height: 11px;
 }
 
-/* logo và icon*/
+/* logo social */
 .logo-container {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
@@ -68,13 +71,15 @@ ul {
   align-items: center;
   color: #777;
 }
+
 .social-icons {
   grid-column: 3;
   justify-self: end;
+  display: flex;
   gap: 12px;
 }
 
-/* nav bar menu*/
+/* navigation bar */
 nav {
   margin-top: 20px;
 }
@@ -84,6 +89,15 @@ nav ul {
   justify-content: space-between;
 }
 
+nav ul li a {
+  padding: 12px 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6f6f70;
+  display: block;
+}
+
+/* dropdown maenu */
 .dropdown {
   position: relative;
 }
@@ -101,42 +115,120 @@ nav ul {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+
 .dropdown-menu a {
   display: block;
   padding: 12px 15px;
   color: #6f6f70;
 }
 
-nav ul li a {
-  padding: 12px 5px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #6f6f70;
-  display: block;
-}
-
-/*# main contet*/
-/* intro text*/
+/* intro Text */
 .intro-text {
   padding: 20px 0;
   margin: auto 2px;
   font-size: 24px;
   color: #777;
 }
-/*anh chinh*/
+
 .banner {
+  position: relative;
   width: 100%;
   padding: 20px 0;
   border-top: 1px solid #c2bcbc;
   border-bottom: 1px solid #c2bcbc;
-  display: flex;
-  justify-content: center;
-}
-.banner image {
-  width: 100%;
 }
 
-/*feature grid - các cột chính*/
+.slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; 
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/*slide */
+.slider .slide {
+  position: absolute;
+  inset: 0; 
+  opacity: 0;
+  visibility: hidden;
+
+  will-change: opacity, transform;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.slider .slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+/*  Zoom ảnh */
+.slider .slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.06) translateZ(0);
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slider .slide.active img {
+  transform: scale(1) translateZ(0);
+}
+
+/* Nút Slider */
+.navigation {
+  position: absolute;
+  bottom: 15px;      
+  left: 15px;        
+  top: auto;         
+  transform: none;   
+  
+  display: flex;
+  gap: 5px;         
+  width: auto;       
+  padding: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* --- Style nút bấm --- */
+.prev-btn,
+.next-btn {
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background: rgba(54, 52, 52, 0.6); /* Nền tối mờ */
+  color: #fff;
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #ffd100; 
+  color: #000;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #ffd100;
+  color: #000;
+  transform: scale(1.1);
+}
+
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -151,12 +243,6 @@ nav ul li a {
   border-right: 1px dashed #888;
 }
 
-.feature-item img {
-  height: 50px;
-  width: auto;
-  object-fit: contain;
-  margin-bottom: 15px;
-}
 .feature-item {
   display: flex;
   flex-direction: column;
@@ -164,11 +250,21 @@ nav ul li a {
   color: #777;
   text-align: center;
 }
+
+.feature-item img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+/*khuyenmai logo*/
 .promo-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
-/*footer*/
+/* foot */
 footer {
   margin-top: 40px;
   background-color: #eaeaea;
@@ -182,11 +278,13 @@ footer {
   gap: 30px;
   padding-bottom: 20px;
 }
+
 .widget {
   flex: 1;
   font-size: 11px;
   color: #666;
 }
+
 h3 {
   font-size: 12px;
   color: #222;
@@ -194,10 +292,12 @@ h3 {
   margin-bottom: 12px;
   font-weight: 700;
 }
+
 .widget-col p {
   margin-bottom: 10px;
   line-height: 1.5;
 }
+
 .widget-col .small-text {
   font-size: 10px;
 }
@@ -236,11 +336,11 @@ h3 {
   background-color: #777;
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 10px;
   color: #ffffff;
   padding: 12px 0;
   gap: 20px;
-  align-items: center;
 }
 
 .footer-links a:not(:first-child) {
@@ -248,13 +348,13 @@ h3 {
   padding-left: 12px;
   line-height: 1;
 }
-/*-------*/
+
 @media (max-width: 768px) {
-  /* Container */
   .container {
     padding: 0 20px;
   }
 
+  /* Header */
   .logo-container {
     grid-template-columns: 1fr;
     row-gap: 15px;
@@ -270,10 +370,9 @@ h3 {
   .social-icons {
     grid-column: 1;
     justify-self: center;
-    display: flex;
   }
 
-  /* manu */
+  /* Navbar */
   nav ul {
     flex-direction: column;
     gap: 10px;
@@ -289,25 +388,29 @@ h3 {
     border-bottom: 1px solid #eee;
   }
 
-  /* dropdown */
   .dropdown-menu {
     position: static;
     width: 100%;
   }
 
-  /* Intro */
   .intro-text {
     font-size: 20px;
     text-align: center;
   }
 
-  /* banner */
-  .banner img {
-    width: 100%;
-    height: auto;
+  /* Slider Responsive */
+  .slider {
+    aspect-ratio: 16 / 10; 
   }
 
-  /* feature */
+  .prev-btn,
+  .next-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+  }
+
+  /* Grid & Sections */
   .feature-grid {
     grid-template-columns: 1fr;
     gap: 25px;
@@ -319,16 +422,10 @@ h3 {
     padding-bottom: 20px;
   }
 
-  /* Promo */
-  .promo-section {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  /* footer */
+  .promo-section,
   .footer-widgets {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
   }
 
   .footer-links {
