@@ -5,8 +5,7 @@
 }
 
 body {
-  font-family: "Gotham Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family: "Gotham Rounded", sans-serif;
   color: #000000;
   background-color: #fff;
   line-height: 1.2;
@@ -132,10 +131,12 @@ nav ul li a {
 
 .banner {
   position: relative;
-  width: 100%;
-  padding: 20px 0;
+  width: 70%;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 1px solid #c2bcbc;
   border-bottom: 1px solid #c2bcbc;
+  justify-self: center;
 }
 
 .slider {
@@ -171,7 +172,7 @@ nav ul li a {
 .slider .slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: center;
   object-position: center;
   background-color: #fbfbfb;
   transform: scale(1.06) translateZ(0);
