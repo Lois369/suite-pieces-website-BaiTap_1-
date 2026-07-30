@@ -141,7 +141,7 @@ nav ul li a {
 .slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; 
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 8px;
   background-color: #000;
@@ -151,7 +151,7 @@ nav ul li a {
 /*slide */
 .slider .slide {
   position: absolute;
-  inset: 0; 
+  inset: 0;
   opacity: 0;
   visibility: hidden;
 
@@ -185,14 +185,14 @@ nav ul li a {
 /* Nút Slider */
 .navigation {
   position: absolute;
-  bottom: 15px;      
-  left: 15px;        
-  top: auto;         
-  transform: none;   
-  
+  bottom: 15px;
+  left: 15px;
+  top: auto;
+  transform: none;
+
   display: flex;
-  gap: 5px;         
-  width: auto;       
+  gap: 5px;
+  width: auto;
   padding: 0;
   z-index: 10;
   pointer-events: none;
@@ -218,7 +218,7 @@ nav ul li a {
 
 .prev-btn:hover,
 .next-btn:hover {
-  background-color: #ffd100; 
+  background-color: #ffd100;
   color: #000;
 }
 
@@ -228,7 +228,6 @@ nav ul li a {
   color: #000;
   transform: scale(1.1);
 }
-
 
 .feature-grid {
   display: grid;
@@ -401,7 +400,7 @@ h3 {
 
   /* Slider Responsive */
   .slider {
-    aspect-ratio: 16 / 10; 
+    aspect-ratio: 16 / 10;
   }
 
   .prev-btn,
