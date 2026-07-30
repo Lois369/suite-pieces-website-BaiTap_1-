@@ -198,37 +198,71 @@ nav ul li a {
   pointer-events: none;
 }
 
-/* --- Style nút bấm --- */
+/* --- Khung chứa 2 nút (Giữ cố định ở góc dưới bên trái slider) --- */
+.navigation {
+  position: absolute;
+  bottom: 12px; /* Cách mép dưới cố định 12px */
+  left: 12px; /* Cách mép trái cố định 12px */
+  top: auto;
+  transform: none;
+
+  display: flex;
+  gap: 6px; /* Khoảng cách cố định giữa 2 nút */
+  width: auto;
+  padding: 0;
+  z-index: 20; /* Đảm bảo luôn đè lên trên ảnh */
+  pointer-events: none;
+}
+
+/* --- Style nút bấm (Cố định kích thước 100% không bị co dãn) --- */
+/* --- Khung chứa 2 nút (Tự điều chỉnh khoảng cách theo màn hình) --- */
+.navigation {
+  position: absolute;
+  bottom: 3%; /* Vị trí cách đáy 3% chiều cao slider */
+  left: 3%; /* Vị trí cách mép trái 3% chiều rộng slider */
+  top: auto;
+  transform: none;
+
+  display: flex;
+  gap: clamp(
+    4px,
+    1vw,
+    8px
+  ); /* Khoảng cách giữa 2 nút tự co giãn từ 4px đến 8px */
+  width: auto;
+  padding: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* --- Style nút bấm (Tự động co giãn kích thước theo thiết bị) --- */
 .prev-btn,
 .next-btn {
   pointer-events: auto;
   border: none;
   outline: none;
-  background: rgba(54, 52, 52, 0.6); /* Nền tối mờ */
+  background: rgba(54, 52, 52, 0.7);
   color: #fff;
-  font-size: 14px;
-  width: 32px;
-  height: 32px;
+
+  width: clamp(26px, 3.5vw, 36px);
+  height: clamp(26px, 3.5vw, 36px);
+
+  font-size: clamp(10px, 1.4vw, 15px);
+
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .prev-btn:hover,
 .next-btn:hover {
   background-color: #ffd100;
   color: #000;
+  transform: scale(1.08);
 }
-
-.prev-btn:hover,
-.next-btn:hover {
-  background-color: #ffd100;
-  color: #000;
-  transform: scale(1.1);
-}
-
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -433,5 +467,14 @@ h3 {
     gap: 10px;
     padding: 15px;
     text-align: center;
+  }
+
+  .prev-btn,
+  .next-btn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    font-size: 16px;
   }
 }
